@@ -15,13 +15,13 @@ def twilio_gateway():
     call_sid = request.form.get("CallSid")
 
     # ---- CUSTOM ACCESS LOGIC ----
-    allowed = caller in ALLOWED_NUMBERS
-
-    if not allowed:
-        vr = VoiceResponse()
-        vr.say("Access denied.")
-        vr.hangup()
-        return Response(str(vr), mimetype="text/xml")
+    # allowed = caller in ALLOWED_NUMBERS
+    #
+    # if not allowed:
+    #     vr = VoiceResponse()
+    #     vr.say("Access denied.")
+    #     vr.hangup()
+    #     return Response(str(vr), mimetype="text/xml")
 
     # ---- FORWARD TO ELEVENLABS INBOUND ENDPOINT ----
     vr = VoiceResponse()
